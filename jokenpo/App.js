@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button, Image } from 'react-native';
-import Jokenpo from './img/jokenpo.png';
-import Pedra from './img/pedra.png';
-import Papel from './img/papel.png';
-import Tesoura from './img/tesoura.png';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
+import Topo from './src/components/topo'
+import Icone from './src/components/icone'
 
 
 export default class App extends Component {
@@ -40,10 +38,10 @@ export default class App extends Component {
         result = 'Empate'
       }
       if (userChoice == 'Papel') {
-        result = 'Você venceu'
+        result = 'O usuário venceu'
       }
       if (userChoice == 'Tesoura') {
-        result = 'Você perdeu'
+        result = 'O computador venceu'
       }
     }
 
@@ -52,10 +50,10 @@ export default class App extends Component {
         result = 'Empate'
       }
       if (userChoice == 'Tesoura') {
-        result = 'Você venceu'
+        result = 'O usuário venceu'
       }
       if (userChoice == 'Pedra') {
-        result = 'Você perdeu'
+        result = 'O computador venceu'
       }
     }
 
@@ -64,10 +62,10 @@ export default class App extends Component {
         result = 'Empate'
       }
       if (userChoice == 'Pedra') {
-        result = 'Você venceu'
+        result = 'O usuário venceu'
       }
       if (userChoice == 'Papel') {
-        result = 'Você perdeu'
+        result = 'O computador venceu'
       }
     }
 
@@ -81,6 +79,7 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
+
         <Topo></Topo>
 
         <View style={styles.viewBtn}>
@@ -100,53 +99,14 @@ export default class App extends Component {
         <View>
           <Text style={styles.resultText}> {this.state.result}</Text>
           <Icone choice={this.state.computerChoice} player='Computador' ></Icone>
-          <Icone choice={this.state.userChoice} player='Você' ></Icone>
+          <Icone choice={this.state.userChoice} player='Usuário' ></Icone>
         </View>
+
       </View>
     );
   }
 }
 
-class Topo extends Component {
-  render() {
-    return (
-      <View>
-        <Image source={Jokenpo} />
-      </View>
-    );
-  }
-}
-
-class Icone extends Component {
-  render() {
-
-    if (this.props.choice == 'Pedra') {
-      return (
-        <View style={styles.icone}>
-          <Text style={styles.txtPlayer}>{this.props.player}</Text>
-          <Image source={Pedra} />
-        </View>
-      )
-    }
-    else if (this.props.choice == 'Papel') {
-      return (
-        <View style={styles.icone}>
-          <Text style={styles.txtPlayer}>{this.props.player}</Text>
-          <Image source={Papel} />
-        </View>
-      )
-    }
-    else if (this.props.choice == 'Tesoura') {
-      return (
-        <View style={styles.icone}>
-          <Text style={styles.txtPlayer}>{this.props.player}</Text>
-          <Image source={Tesoura} />
-        </View>
-      )
-    }
-    else return false;
-  }
-}
 
 const styles = StyleSheet.create({
   container: {
@@ -172,12 +132,5 @@ const styles = StyleSheet.create({
     color: 'red',
     height: 40,
     marginTop: 5
-  },
-  icone: {
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  txtPlayer: {
-    fontSize: 18
   }
 });

@@ -20,9 +20,9 @@ export default class App extends Component {
   jokenpo(userChoice) {
 
     //render random number(0,1,2), pedra, papel e tesoura
-    var randomNumber = Math.floor(Math.random() * 3)
+    const randomNumber = Math.floor(Math.random() * 3)
 
-    var computerChoice = '';
+    let computerChoice = '';
     switch (randomNumber) {
       case 0: computerChoice = 'Pedra';
         break;
@@ -30,49 +30,50 @@ export default class App extends Component {
         break;
       case 2: computerChoice = 'Tesoura';
         break;
+      default: computerChoice = '';
     }
 
-    var result = ''
-    if (computerChoice == 'Pedra') {
-      if (userChoice == 'Pedra') {
+    let result = ''
+    if (computerChoice === 'Pedra') {
+      if (userChoice === 'Pedra') {
         result = 'Empate'
       }
-      if (userChoice == 'Papel') {
+      if (userChoice === 'Papel') {
         result = 'O usuário venceu'
       }
-      if (userChoice == 'Tesoura') {
+      if (userChoice === 'Tesoura') {
         result = 'O computador venceu'
       }
     }
 
-    if (computerChoice == 'Papel') {
-      if (userChoice == 'Papel') {
+    if (computerChoice === 'Papel') {
+      if (userChoice === 'Papel') {
         result = 'Empate'
       }
-      if (userChoice == 'Tesoura') {
+      if (userChoice === 'Tesoura') {
         result = 'O usuário venceu'
       }
-      if (userChoice == 'Pedra') {
+      if (userChoice === 'Pedra') {
         result = 'O computador venceu'
       }
     }
 
-    if (computerChoice == 'Tesoura') {
-      if (userChoice == 'Tesoura') {
+    if (computerChoice === 'Tesoura') {
+      if (userChoice === 'Tesoura') {
         result = 'Empate'
       }
-      if (userChoice == 'Pedra') {
+      if (userChoice === 'Pedra') {
         result = 'O usuário venceu'
       }
-      if (userChoice == 'Papel') {
+      if (userChoice === 'Papel') {
         result = 'O computador venceu'
       }
     }
 
     this.setState({
-      userChoice: userChoice,
-      computerChoice: computerChoice,
-      result: result
+      userChoice,
+      computerChoice,
+      result
     })
   }
 
@@ -80,7 +81,7 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
 
-        <Topo></Topo>
+        <Topo />
 
         <View style={styles.viewBtn}>
           <View style={styles.choiceBtn}>
@@ -98,8 +99,8 @@ export default class App extends Component {
 
         <View>
           <Text style={styles.resultText}> {this.state.result}</Text>
-          <Icone choice={this.state.computerChoice} player='Computador' ></Icone>
-          <Icone choice={this.state.userChoice} player='Usuário' ></Icone>
+          <Icone choice={this.state.computerChoice} player='Computador' />
+          <Icone choice={this.state.userChoice} player='Usuário' />
         </View>
 
       </View>

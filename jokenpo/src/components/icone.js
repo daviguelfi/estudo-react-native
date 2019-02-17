@@ -45,4 +45,4 @@ const styles = StyleSheet.create({
   txtPlayer: {
     fontSize: 18
   }
-});
+}); 

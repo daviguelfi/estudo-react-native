@@ -1,28 +1,41 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, Text, View, Button } from 'react-native';
 
 
 class MyComponent extends Component {
   render() {
     return (
       <View>
-        <Text>{this.props.prop1}</Text>
-        <Text>{this.props.prop2}</Text>
-        <Text>{this.props.prop3}</Text>
-        <Text>{this.props.prop4}</Text>
+        <Text>{this.props.text}</Text>
       </View>
     )
   }
 }
 
 export default class App extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      text: 'É show nego'
+    };
+  };
+
+  changeText() {
+    this.setState({ text: 'Dá dando molin nego' })
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <MyComponent prop1='bananao' prop2='uva' prop3='breja'
-          prop4='é show nego'>
-        </MyComponent>
-
+        <MyComponent text={this.state.text}></MyComponent>
+        <Button
+          title='Botão'
+          onPress={
+            () => { this.changeText() }
+          }
+        />
       </View>
     );
   }

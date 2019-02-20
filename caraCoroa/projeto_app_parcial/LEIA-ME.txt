@@ -1,3 +1,0 @@
-Arquivos atualizados até e inclusive a aula "#APP6 - Navegando entre as cenas com React Native Router Flux".
-
-Bons estudos :D

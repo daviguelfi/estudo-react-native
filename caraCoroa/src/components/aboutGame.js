@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image } from 'react-native';
-import btnBack from '../imgs/botao_voltar.png'
 
 
 export default class aboutGame extends Component {
   render() {
     return (
       <View style={styles.container}>
-        {/* <Image style={styles.img} source={btnBack} /> */}
         <Text style={styles.text}>Aqui pode ser apresentadas informações sobre o jogo</Text>
       </View >
     );

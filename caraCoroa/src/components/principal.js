@@ -6,7 +6,7 @@ import {
   TouchableHighlight
 } from 'react-native';
 
-import Actions from 'react-native-router-flux';
+import {Actions} from 'react-native-router-flux';
 
 import Logo from '../imgs/logo.png';
 import btnPlay from '../imgs/botao_jogar.png'
@@ -20,7 +20,11 @@ export default class Principal extends Component {
 
         <View style={styles.apresentacaoJogo}>
           <Image source={Logo} />
-          <Image source={btnPlay} />
+          <TouchableHighlight
+            onPress={() => { Actions.result(); }}
+            >
+            <Image source={btnPlay} />
+          </TouchableHighlight>
         </View>
 
         <View style={styles.footer}>

@@ -1,21 +1,13 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Image } from 'react-native';
-import { Router, Scene } from 'react-native-router-flux';
+import { StyleSheet } from 'react-native';
 
-import principal from './src/components/principal';
-import aboutGame from './src/components/aboutGame';
-import otherGame from './src/components/otherGame';
-import result from './src/components/result';
+import Routes from './src/Routes'
 
 export default class App extends Component {
   render() {
     return (
-      <Router sceneStyle={{ paddingTop: 20 }}>
-        <Scene key='principal' component={principal} initil title='Cara ou Coroa' />
-        <Scene key='aboutgame' component={aboutGame} title="Sobre o Jogo" />
-        <Scene key='othergame' component={otherGame} title="Outros Jogos" />
-        <Scene key='result' component={result} title='Resultado' />
-      </Router>
+      <Routes />
+
     );
   }
 }
